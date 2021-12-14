@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+let n = 6
+let allConnections = [[1,2,12],[2,3,20],[3,4,5],[4,5,7],[1,5,10],[2,4,3]]
+
+var allDistances = Array(repeating: Array(repeating: Int.max, count: n+1), count: n+1)
+// var - Array()[]
+func setConnection() {
+    for connection in allConnections {
+        allDistances[connection[0]][connection[1]] = connection[2]
+        allDistances[connection[1]][connection[0]] = connection[2]
+    }
+}
+
+func floyd() {
+    for i in 1...n {
+        for j in 1...n {
+            for k in 1...n {
+                if allDistances[j][i] == Int.max || allDistances[i][k] == Int.max { continue }
+                if allDistances[j][i] + allDistances[i][k] &lt; allDistances[j][k] {
+                    allDistances[j][k] = allDistances[j][i] + allDistances[i][k]
+                }
+            }
+        }
+    }
+}
+
+setConnection()
+floyd()
+print(allDistances)
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 840}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
