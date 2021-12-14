@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playground target-platform="ios" version="6.0" requires-full-environment="false">
+    <pages>
+        <page name="Inheritance"/>
+        <page name="Override"/>
+        <page name="initializer"/>
+        <page name="Default Property Values"/>
+        <page name="Initialization Parameter"/>
+        <page name="parameter Names and Argument Labels"/>
+        <page name="init parameter without Argument Label"/>
+        <page name="Optional property type&#9;"/>
+        <page name="assign constant properties "/>
+        <page name="Default intializer"/>
+        <page name="memberwise initializer for structure types"/>
+        <page name="initializer delegation for value types"/>
+    </pages>
+</playground>
