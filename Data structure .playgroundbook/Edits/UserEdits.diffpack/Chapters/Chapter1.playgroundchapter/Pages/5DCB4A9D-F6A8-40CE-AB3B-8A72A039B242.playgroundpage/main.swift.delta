@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+var numbers = [1, 2, 4, 6, 8, 9, 11, 13, 16, 17, 20]
+
+func binarySearchForSearchValue(searchValue: Int, array: [Int]) -&gt;Bool 
+{
+    var leftindex = 0
+    var rightindex = array.count - 1
+    
+    while leftindex &lt;= rightindex 
+    {
+        let middleIndex = (leftindex + rightindex)/2
+        let middleValue = array[middleIndex]
+        
+        print("middleValue: \(middleValue), leftindex: \(leftindex), rightindex: \(rightindex), [\(array[leftindex]), \(array[rightindex])]")
+        
+        if middleValue == searchValue{
+            return true
+        }
+        
+        if searchValue &lt; middleValue {
+            rightindex = middleIndex - 1
+        }
+        
+        if searchValue &gt; middleValue {
+            leftindex = middleIndex + 1
+        }
+    }
+    return false
+}
+print(binarySearchForSearchValue(searchValue: 99, array: numbers))
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 867}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

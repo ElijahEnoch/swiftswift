@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+var oneThousandNumbers = [Int]()
+
+for i in 1...100 {
+    oneThousandNumbers.append(i)
+}
+
+for num in oneThousandNumbers {
+    if num % 15 == 0 {
+        print("\(num) fizzbuzz")
+    } else if num % 3 == 0 {
+        print("\(num) fizz")
+    } else if num % 5 == 0 {
+        print("\(num) buzz")
+    } else {
+        print(num)
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 413}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

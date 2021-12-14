@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>class BinaryNode&lt;Element&gt; {
+    var value: Element
+    var leftChild: BinaryNode?
+    var rightChild: BinaryNode?
+    
+    init(value: Element) {
+        self.value = value
+    }
+}
+
+extension BinaryNode {
+    func traverseInOrder(visit: (Element) -&gt; Void) {
+        leftChild?.traverseInOrder(visit: visit)
+        visit(value)
+        rightChild?.traverseInOrder(visit: visit)
+    }
+    func traversePreOrder(visit: (Element) -&gt; Void) {
+        visit(value)
+        leftChild?.traversePreOrder(visit: visit)
+        rightChild?.traversePreOrder(visit: visit)
+    }
+    func traversePostOrder(visit: (Element) -&gt; Void) {
+        leftChild?.traversePostOrder(visit: visit)
+        rightChild?.traversePostOrder(visit: visit)
+        visit(value)
+    }
+}
+
+extension BinaryNode: CustomStringConvertible{
+    //extension BinaryNode: CustomStringConvertible
+    public var description: String {
+        return diagram(for: self)
+    }
+    
+    public func diagram(for node: BinaryNode?, _ top: String = "", _ root: String = "", _ bottom: String = "") -&gt; String {
+        guard let node = node else {
+            return root + "nil\n"
+        }
+        if node.leftChild == nil &amp;&amp; node.rightChild == nil {
+            return root + "\(node.value)\n"
+        }
+        return diagram(for: node.rightChild, top + " ", top + "-", top + "| ") + root + "\(node.value)\n" + diagram(for: node.leftChild, bottom + "| ", bottom + "_", bottom + " ")
+    }
+    
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1447}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

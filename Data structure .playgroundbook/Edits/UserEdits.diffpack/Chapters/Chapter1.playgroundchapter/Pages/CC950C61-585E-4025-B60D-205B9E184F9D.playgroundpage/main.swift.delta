@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>struct Array&lt;Elements&gt; {
+    let witchHat = [4]
+    
+    protocol Hashable {
+        &lt;#requirements#&gt;
+    }
+    protocol Comparable {
+        &lt;#requirements#&gt;
+    }
+    protocol Equatable {
+        &lt;#requirements#&gt;
+    }
+    protocol ExpressibleByArrayLiteral {
+        &lt;#requirements#&gt;
+    }
+    protocol RandomAccessCollection where Self.Indices == RandomAccessCollection, Self.SubSequence : Random {
+        &lt;#requirements#&gt;
+    }
+    
+    
+}
+
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 448}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
