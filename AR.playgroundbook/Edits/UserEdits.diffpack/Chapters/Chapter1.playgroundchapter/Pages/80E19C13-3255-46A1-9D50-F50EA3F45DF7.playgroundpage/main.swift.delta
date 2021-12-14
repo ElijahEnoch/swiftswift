@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import RealityKit
+import ARKit
+import PlaygroundSupport
+
+let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
+let mesh = MeshResource.generateBox(size: 0.2)
+let material = SimpleMaterial(color: .systemPink, roughness: 0.5, isMetallic: true)
+let modelEntity = ModelEntity(mesh: mesh, materials:[material])
+let anchorEntity = AnchorEntity(plane: .horizontal)
+anchorEntity.name = "CubeAnchor"
+anchorEntity.addChild(modelEntity)
+arView.scene.addAnchor(anchorEntity)
+
+modelEntity.generateCollisionShapes(recursive: true)
+arView.installGestures([.translation, .rotation, .scale], for: modelEntity)
+
+extension ARView { 
+    func enableObjectRemoval(){
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
+        self.addGestureRecognizer(longPressGestureRecognizer)
+    }
+    
+    @objc func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        let location = recognizer.location(in: self)
+        if let entity = self.entity(at: location){
+            if let anchorEntity = entity.anchor, anchorEntity.name == "CubeAnchor"{
+                anchorEntity.removeFromParent()
+                print("Removed anchor with name: " + anchorEntity.name)
+            }
+        }
+    } 
+}
+arView.enableObjectRemoval()
+PlaygroundPage.current.setLiveView(arView)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1374}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

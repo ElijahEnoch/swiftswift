@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import PlaygroundSupport
+import ARKit
+import SceneKit
+
+
+class ARViewController: UIViewController {
+    lazy var arView = ARSCNView(frame: UIScreen.main.bounds)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupARView()
+    }
+    override func viewDidDisappear(_ animated: Bool) 
+    {
+        arView.session.pause()
+    }
+    
+    func setupARView() {
+        let scene = SCNScene()
+        arView.scene = scene
+        let config = ARFaceTrackingConfiguration()
+        arView.session.run(config)
+        self.view = arView
+    }
+}
+extension ARViewController: ARSCNViewDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -&gt; SCNNode? {
+        guard let faceAnchor = anchor as? ARFaceAnchor, let device = arView.device else { return nil }
+        let faceGeometry = ARSCNFaceGeometry(device: device)
+        let node = SCNNode(geometry: faceGeometry)
+        node.geometry?.firstMaterial?.fillMode = .lines
+        
+        return node
+    }
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let faceAnchor = anchor as? ARFaceAnchor, let faceGeometry = node.geometry as? ARSCNFaceGeometry else { return }
+        faceGeometry.update(from: faceAnchor.geometry)
+    }
+}
+
+PlaygroundPage.current.liveView = ARViewController()
+PlaygroundPage.current.needsIndefiniteExecution = true
+
+
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1500}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
