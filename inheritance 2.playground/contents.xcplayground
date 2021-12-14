@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playground requires-full-environment="false" version="6.0" target-platform="ios">
+    <pages>
+        <page name="inheritance 2"/>
+        <page name="failiable initializers"/>
+        <page name="failable init for Enummeration"/>
+        <page name="failable init for enum"/>
+        <page name="propagation of init Failure"/>
+        <page name="Overriding a Failable Init"/>
+        <page name="Default prop value w Closure or Function"/>
+        <page name="ChessBoard"/>
+        <page name="Deinitializtion"/>
+        <page name="무제 페이지 7"/>
+        <page name="무제 페이지 8"/>
+        <page name="무제 페이지 9"/>
+        <page name="무제 페이지 10"/>
+        <page name="무제 페이지 11"/>
+        <page name="무제 페이지 12"/>
+        <page name="무제 페이지 13"/>
+        <page name="무제 페이지 14"/>
+        <page name="무제 페이지 15"/>
+        <page name="무제 페이지 16"/>
+        <page name="무제 페이지 17"/>
+        <page name="무제 페이지 18"/>
+        <page name="무제 페이지 19"/>
+        <page name="무제 페이지 20"/>
+    </pages>
+</playground>
